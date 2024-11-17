@@ -1,0 +1,70 @@
+﻿<Window x:Class="Sistema_Salud.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sistema_Salud"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="1210">
+    <Grid>
+        <!-- Header -->
+        <TextBlock FontSize="20" FontWeight="Bold" Text="Sistema de Gestión de Salud" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
+
+        <!-- Formulario para ingresar/editar datos de pacientes -->
+        <StackPanel Orientation="Vertical" Margin="20,80,0,55" HorizontalAlignment="Left">
+            <TextBlock Text="Documento" FontWeight="Bold"/>
+            <TextBox x:Name="txtDocumento" Width="200"/>
+
+            <TextBlock Text="Nombre" FontWeight="Bold"/>
+            <TextBox x:Name="txtNombre" Width="200"/>
+
+            <TextBlock Text="Apellido" FontWeight="Bold"/>
+            <TextBox x:Name="txtApellido" Width="200"/>
+
+            <TextBlock Text="Fecha de Nacimiento" FontWeight="Bold"/>
+            <DatePicker x:Name="dpFechaNacimiento" Width="200"/>
+
+            <TextBlock Text="Género" FontWeight="Bold"/>
+            <ComboBox x:Name="cbGenero" Width="100">
+                <ComboBoxItem Content="M"/>
+                <ComboBoxItem Content="F"/>
+            </ComboBox>
+
+            <TextBlock Text="Dirección" FontWeight="Bold"/>
+            <TextBox x:Name="txtDireccion" Width="200"/>
+
+            <TextBlock Text="Teléfono" FontWeight="Bold"/>
+            <TextBox x:Name="txtTelefono" Width="200"/>
+
+            <TextBlock Text="Email" FontWeight="Bold"/>
+            <TextBox x:Name="txtEmail" Width="200"/>
+        </StackPanel>
+
+        <!-- Botones de acciones -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="124,445,0,0" RenderTransformOrigin="0.387,0.386" Width="1175">
+            <Button Content="Mostrar Pacientes" Width="130" Height="30" Margin="10" Click="Mostrar_Pacientes"/>
+            <Button Content="Guardar" Width="100" Height="30" Margin="10" Click="Guardar_Paciente"/>
+            <Button Content="Actualizar" Width="100" Height="30" Margin="10" Click="Actualizar_Paciente"/>
+            <Button Content="Eliminar" Width="100" Height="30" Margin="10" Click="Borrar_Paciente"/>
+            <Button Content="Limpiar" Width="100" Height="30" Margin="10" Click="Limpiar_Lista"/>
+            <Button Content="Turno" Width="100" Height="30" Margin="10" Click="Dar_Turno"/>
+            <Button Content="Ingresar Médico" Width="120" Height="30" Margin="10" Click="AbrirVentanaMedicos_Click"/>
+            <Button Content="Facturacion" Width="120" Height="30" Margin="10" Click="AbrirVentanaFacturacion_Click"/>
+        </StackPanel>
+
+        <!-- Tabla de pacientes -->
+        <DataGrid x:Name="dgPacientes" HorizontalAlignment="Right" VerticalAlignment="Top" Height="300" Width="955" Margin="0,103,10,0" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgPacientes_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding PacienteID}" Width="50"/>
+                <DataGridTextColumn Header="Documento" Binding="{Binding Documento}" Width="100"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="100"/>
+                <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}" Width="100"/>
+                <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" Width="100"/>
+                <DataGridTextColumn Header="Fecha de Nacimiento" Binding="{Binding FechaNacimiento}" Width="100"/>
+                <DataGridTextColumn Header="Genero" Binding="{Binding Genero}" Width="100"/>
+                <DataGridTextColumn Header="Direccion" Binding="{Binding Direccion}" Width="100"/>
+                <DataGridTextColumn Header="E-mail" Binding="{Binding Email}" Width="200"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

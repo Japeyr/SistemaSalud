@@ -1,0 +1,53 @@
+﻿<Window x:Class="Sistema_Salud.VentanaMedicos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sistema_Salud"
+        mc:Ignorable="d"
+        Title="Ventana Medicos" Height="550" Width="780">
+    <Grid>
+        <!-- Header -->
+        <TextBlock FontSize="20" FontWeight="Bold" Text="Sistema de Gestión de Salud - Seccion Médicos" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
+
+        <!-- Formulario para ingresar/editar datos de Medicos -->
+        <StackPanel Orientation="Vertical" Margin="20,80,0,171" HorizontalAlignment="Left">
+
+            <TextBlock Text="Nombre" FontWeight="Bold"/>
+            <TextBox x:Name="medNombre" Width="200"/>
+
+            <TextBlock Text="Apellido" FontWeight="Bold"/>
+            <TextBox x:Name="medApellido" Width="200"/>
+
+            <TextBlock Text="Especialidad" FontWeight="Bold"/>
+            <TextBox x:Name="medEspecialidad" Width="200"/>
+
+            <TextBlock Text="Telefono" FontWeight="Bold"/>
+            <TextBox x:Name="medTelefono" Width="200"/>
+
+            <TextBlock Text="E-mail" FontWeight="Bold"/>
+            <TextBox x:Name="medEmail" Width="200"/>
+
+            <Button Content="Tratamiento Medico" Width="150" Height="30" Margin="10" Click="AbrirVentanaTratamientos_Click"/>
+        </StackPanel>
+        <!-- Botones de acciones -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,427,0,0">
+            <Button Content="Mostrar Medicos" Width="130" Height="30" Margin="10" Click="Mostrar_Medicos"/>
+            <Button Content="Guardar" Width="100" Height="30" Margin="10" Click="Guardar_Medico"/>
+            <Button Content="Actualizar" Width="100" Height="30" Margin="10" Click="Actualizar_Medico"/>
+            <Button Content="Eliminar" Width="100" Height="30" Margin="10" Click="Eliminar_Medico"/>
+            <Button Content="Limpiar" Width="100" Height="30" Margin="10" Click="Limpiar_Medico"/>
+            <Button Content="Especialidad" Width="100" Height="30" Margin="10" Click="Especialidad_Medico"/>
+        </StackPanel>
+
+        <!-- Tabla de Medicos -->
+        <DataGrid x:Name="Medicos" HorizontalAlignment="Right" VerticalAlignment="Top" Height="327" Width="425" Margin="0,71,79,0" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="Medicos_SelectionChanged" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding MedicoID}" Width="50"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="100"/>
+                <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}" Width="100"/>
+                <DataGridTextColumn Header="Especialidad" Binding="{Binding Especialidad}" Width="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
