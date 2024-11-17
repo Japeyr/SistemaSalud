@@ -1,6 +1,3 @@
-Sistema de salud
-Creación de base de datos y tablas con campos, relaciones con FK, Store Procedures y Triggers
-
 CREATE DATABASE Salud;
 
 GO
