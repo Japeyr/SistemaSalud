@@ -423,18 +423,3 @@ VALUES (14, 10, '2024-08-27', 1350.00, 'Pendiente');
 GO
 
 
-
-
-
-
-Ejemplo de vista
-
-CREATE VIEW CitasHoy AS
-SELECT p.Nombre, p.Apellido, c.FechaHora, c.MotivoConsulta
-FROM Pacientes p
-INNER JOIN Citas c ON p.PacienteID = c.PacienteID
-WHERE CAST(c.FechaHora AS DATE) = CAST(GETDATE() AS DATE);
-go
-select * from CitasHoy;
-go
-
